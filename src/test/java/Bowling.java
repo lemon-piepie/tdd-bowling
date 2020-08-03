@@ -7,4 +7,11 @@ public class Bowling {
         }
         return (throwhit[0]+throwhit[1]);
     }
+
+    int throwlast(int[] throwhit){
+        if ((throwhit[0]+throwhit[1]) == 10){
+            return (10+throwhit[2]);
+        }
+        return (throwhit[0]+throwhit[1]);
+    }
 }

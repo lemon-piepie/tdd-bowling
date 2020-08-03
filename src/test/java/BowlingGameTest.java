@@ -1,6 +1,6 @@
 import org.junit.jupiter.api.Test;
 
-import static javax.naming.directory.BasicAttribute.arrayEquals;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -37,5 +37,27 @@ public class BowlingGameTest {
         int score = bowl.throwtwice(throwhit);
         //Then
         assertEquals(26, score);
+    }
+
+    @Test
+    void should_get_number_of_pins_without_spare_or_strike_on_tenth_time(){
+        //Given
+        Bowling bowl = new Bowling();
+        int[] throwhit = new int[]{5,3};
+        //When
+        int score = bowl.throwlast(throwhit);
+        //Then
+        assertEquals(8, score);
+    }
+
+    @Test
+    void should_get_number_of_pins_and_next_throw_when_spare_on_tenth_time(){
+        //Given
+        Bowling bowl = new Bowling();
+        int[] throwhit = new int[]{7,3,7};
+        //When
+        int score = bowl.throwlast(throwhit);
+        //Then
+        assertEquals(17, score);
     }
 }
