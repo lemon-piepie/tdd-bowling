@@ -16,4 +16,15 @@ public class BowlingGameTest {
         //Then
         assertEquals(7, socre);
     }
+
+    @Test
+    void should_get_10_and_next_frame_score_if_spare(){
+        //Given
+        Bowling bowl = new Bowling();
+        int[] throwhit=new int[]{8,2,3,6};
+        //When
+        int socre = bowl.throwtwice(throwhit);
+        //Then
+        assertEquals(19, socre);
+    }
 }
