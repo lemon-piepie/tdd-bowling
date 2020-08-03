@@ -12,7 +12,7 @@ public class BowlingGameTest {
         Bowling bowl = new Bowling();
         int[] throwhit=new int[]{2,5};
         //When
-        int score = bowl.throwtwice(throwhit);
+        int score = bowl.throwNomalFrame(throwhit);
         //Then
         assertEquals(7, score);
     }
@@ -23,7 +23,7 @@ public class BowlingGameTest {
         Bowling bowl = new Bowling();
         int[] throwhit=new int[]{8,2,3,6};
         //When
-        int score = bowl.throwtwice(throwhit);
+        int score = bowl.throwNomalFrame(throwhit);
         //Then
         assertEquals(19, score);
     }
@@ -34,7 +34,7 @@ public class BowlingGameTest {
         Bowling bowl = new Bowling();
         int[] throwhit = new int[]{10,0,8,1,5,2};
         //When
-        int score = bowl.throwtwice(throwhit);
+        int score = bowl.throwNomalFrame(throwhit);
         //Then
         assertEquals(26, score);
     }
@@ -45,7 +45,7 @@ public class BowlingGameTest {
         Bowling bowl = new Bowling();
         int[] throwhit = new int[]{5,3};
         //When
-        int score = bowl.throwlast(throwhit);
+        int score = bowl.throwLastFrame(throwhit);
         //Then
         assertEquals(8, score);
     }
@@ -56,7 +56,7 @@ public class BowlingGameTest {
         Bowling bowl = new Bowling();
         int[] throwhit = new int[]{7,3,7};
         //When
-        int score = bowl.throwlast(throwhit);
+        int score = bowl.throwLastFrame(throwhit);
         //Then
         assertEquals(17, score);
     }
@@ -67,8 +67,30 @@ public class BowlingGameTest {
         Bowling bowl = new Bowling();
         int[] throwhit = new int[]{10,0,7,9};
         //When
-        int score = bowl.throwlast(throwhit);
+        int score = bowl.throwLastFrame(throwhit);
         //Then
         assertEquals(26, score);
+    }
+
+    @Test
+    void should_get_score_when_10_frame_done_without_strike_or_spare(){
+        //Given
+        Bowling bowl = new Bowling();
+        int[] hitNumber = new int[]{2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0,0};
+        //When
+        int socres = bowl.getScore(hitNumber);
+        //Then
+        assertEquals(40,socres);
+    }
+
+    @Test
+    void should_get_score_when_10_frame_done_with_strike_and_spare(){
+        //Given
+        Bowling bowl = new Bowling();
+        int[] hitNumber = new int[]{2,2,2,2,10,0,4,3,2,5,5,5,2,2,2,2,2,2,2,2,0,0};
+        //When
+        int socres = bowl.getScore(hitNumber);
+        //Then
+        assertEquals(76,socres);
     }
 }
