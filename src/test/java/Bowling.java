@@ -9,7 +9,9 @@ public class Bowling {
     }
 
     int throwlast(int[] throwhit){
-        if ((throwhit[0]+throwhit[1]) == 10){
+        if ((throwhit[0]+throwhit[1]) == 10 && throwhit[1] == 0){
+            return (10+throwhit[2]+throwhit[3]);
+        }else if ((throwhit[0]+throwhit[1]) == 10){
             return (10+throwhit[2]);
         }
         return (throwhit[0]+throwhit[1]);

@@ -60,4 +60,15 @@ public class BowlingGameTest {
         //Then
         assertEquals(17, score);
     }
+
+    @Test
+    void should_get_number_of_pins_and_next_two_throw_when_strike_on_tenth_time(){
+        //Given
+        Bowling bowl = new Bowling();
+        int[] throwhit = new int[]{10,0,7,9};
+        //When
+        int score = bowl.throwlast(throwhit);
+        //Then
+        assertEquals(26, score);
+    }
 }
