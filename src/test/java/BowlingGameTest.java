@@ -149,5 +149,14 @@ public class BowlingGameTest {
         assertEquals(76,socres);
     }
 
-    
+    @Test
+    void should_get_score_when_10_frame_done_with_strike_all(){
+        //Given
+        Bowling bowl = new Bowling();
+        int[] hitNumber = new int[]{10,0,10,0,10,0,10,0,10,0,10,0,10,0,10,0,10,0,10,0,10,10};
+        //When
+        int socres = bowl.getScore(hitNumber);
+        //Then
+        assertEquals(300,socres);
+    }
 }

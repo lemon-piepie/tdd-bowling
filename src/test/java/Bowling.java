@@ -38,6 +38,10 @@ public class Bowling {
         for (int j = 0; j < 10; j++){
             this.finalscore += score[j];
         }
+
+        if (hitNumber[16] == 10){
+            this.finalscore -= hitNumber[21];
+        }
         return this.finalscore;
     }
 
